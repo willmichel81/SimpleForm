@@ -1,9 +1,4 @@
 <?php
-namespace SimpleForm;
-require($_SERVER['DOCUMENT_ROOT']."/pr-forms/vendor/autoload.php");
-
-// use Respect\Validation\Validator as v;
-use GuzzleHttp\Client;
 
 class SimpleForm{
 
