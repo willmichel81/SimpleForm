@@ -2,7 +2,7 @@
 namespace SimpleForm;
 require($_SERVER['DOCUMENT_ROOT']."/pr-forms/vendor/autoload.php");
 
-use Respect\Validation\Validator as v;
+// use Respect\Validation\Validator as v;
 use GuzzleHttp\Client;
 
 class SimpleForm{
@@ -72,7 +72,7 @@ class SimpleForm{
     $this->addFormInputElement('extra_label');
   }
 
-  function setSubmitBtn($btn_text,$btn_class = 'btn'){
+  function setSubmitBtn($btn_text,$btn_class = 'btn g-recaptcha'){
     $this->submit_button_text = $btn_text;
     $this->submit_button_class = $btn_class;
   }
