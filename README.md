@@ -18,7 +18,7 @@ This class was created to quickly and dynamically create forms with good coding 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-To get started using this class download from git repo:
+To get started using this class download from git repo:<br />
 <code>git clone https://github.com/willmichel81/SimpleForm.git</code>
 
 <!-- Dependencies -->
@@ -39,15 +39,15 @@ This is using google reCAPTCHA v3.
 Basic usage of SimpleForm.php <br />
 
   Start Session at the top of the page, this is used to preserve the original reCAPTCHA key. <br />
-  <code><?php session_start();?></code> <br />
+  <code>session_start();</code> <br />
 
   Require the SimpleForm.php file <br />
-  <code><?php require("/path/to/SimpleForm.php")?></code><br />
+  <code>require("/path/to/SimpleForm.php")</code><br />
 
   Create new SimpleForm object <br />
-  <code><?php $form = new SimpleForm('/where/this/form/will/submit.php#msg',"(Get|Post)");?></code>
+  <code>$form = new SimpleForm('/where/this/form/will/submit.php#msg',"(Get|Post)");</code>
 
-  Start creating form elements
+  Start creating form elements<br />
     <code>
    $form->setFieldset("Name you want to appear above this particular section");<br />
     $form->setInput("label text", "name of element", "id of element", "required(True | False)", "class of element", "Input Type(ex. text,number..)");<br />
