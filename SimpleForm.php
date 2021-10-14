@@ -1,4 +1,9 @@
 <?php
+namespace SimpleForm;
+require($_SERVER['DOCUMENT_ROOT']."/pr-forms/vendor/autoload.php");
+
+use Respect\Validation\Validator as v;
+use GuzzleHttp\Client;
 
 class SimpleForm{
 
@@ -128,7 +133,7 @@ class SimpleForm{
     $form = "";
     $i = 0;
     if($element == 'clickable'){
-      $form .= "<div class='form-group col-md-6'>";
+      $form .= "<div class='form-group col-md-12'>";
         foreach($this->clickable_values as $value){
           if($this->clickable_type == 'checkbox'){
             if($this->clickable_format == 'inline'){
