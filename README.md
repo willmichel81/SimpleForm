@@ -59,4 +59,4 @@ Basic usage of SimpleForm.php <br />
    when calling setEndFieldset() method accepts no params and just closes the fieldset
 
   ### EXAMPLES
-  <a href="https://github.com/willmichel81/SimpleForm/tree/master/documentation/">Please click here for more documentation.</a>
+  <a href="https://github.com/willmichel81/SimpleForm/blob/main/documentation/documentation.md">Please click here for more documentation.</a>

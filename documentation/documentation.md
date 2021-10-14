@@ -14,7 +14,7 @@
     <li><a href="#setrecaptchainfo">setRecaptchaInfo()</a></li>
     <li><a href="#validate">validate()</a></li>
     <li><a href="#build">build()</a></li>
-    <li><a href="https://github.com/willmichel81/SimpleForm/tree/master/Example/">Implementation</a></li>
+    <li><a href="https://github.com/willmichel81/SimpleForm/blob/main/documentation/example.php">Implementation</a></li>
   </ol>
 </details>
 
