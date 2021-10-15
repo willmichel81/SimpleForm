@@ -170,7 +170,7 @@ class SimpleForm{
               $form .= "</label>";
             }
             if($i==0){
-              $this->requiredName == True ? array_push($this->requiredName_array,$this->clickable_names[0]):"";
+              $this->requiredName == True ? array_push($this->requiredName_array,$this->clickable_names[$i]):"";
               $this->requiredName == True ? array_push($this->requiredLabel_array,'You must select an option out of the radio buttons, this '):"";
             }
           }
@@ -179,7 +179,7 @@ class SimpleForm{
         $form .="</div>";
 
     }elseif($element == "start_fieldset"){
-      $form .= "<fieldset>";
+      $form .= "<fieldset class='col-md-12'>";
       $form .= $this->fieldset_label !== "" ? "<legend>$this->fieldset_label</legend>":"";
     }elseif($element == "end_fieldset"){
       $form .="<hr class='col-md-12' /></fieldset>";
@@ -218,6 +218,7 @@ class SimpleForm{
            foreach($this->getFormElements() as $element){
          $html .= "$element";
        }
+     $html .="<div class='col-md-12' style='padding-bottom:20px;'>";
      $html .= !empty($this->getSubmitBtn()) ? "<button id='sub' class='$this->submit_button_class' data-sitekey='$this->recap_public' data-callback='onSubmit' data-action=$this->recap_action>":"";
      $html .= !empty($this->getSubmitBtn()) ? $this->getSubmitBtn() : "";
      $html .= !empty($this->getSubmitBtn()) ? "</button>" : "";
@@ -225,7 +226,7 @@ class SimpleForm{
      $html .= !empty($this->getResetBtn()) ? "<button class=$this->reset_button_class type='reset'>":"";
      $html .= !empty($this->getResetBtn()) ? $this->getResetBtn() : "";
      $html .= !empty($this->getResetBtn()) ? "</button>" : "";
-
+     $html .= "</div>";
      $html .= "</form>";
      return $html;
   }
@@ -247,7 +248,7 @@ class SimpleForm{
         }
       }
       $required_assoc = array_combine($this->requiredName_array,$this->requiredLabel_array);
-      foreach($this->requiredName_array as $required){
+      foreach(array_filter($this->requiredName_array) as $required){
         if($required == 'csfrToken'){
           if(isset($data['csfrToken']) && $this->csfrToken !== $data['csfrToken']){
             array_push($error_details,"<li>CSFR token mismatch</li>");
