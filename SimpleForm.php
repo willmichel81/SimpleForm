@@ -191,6 +191,7 @@ class SimpleForm{
       $form .= $this->id !=='' ? "for='$this->id'>" : ">";
       $form .= $this->label_text !=='' ? $this->label_text : "";
       $form .= "</label>";
+      $form .= $this->requiredName !== '' && $this->requiredName !== False ? " <span style='color:red'>*</span>":"";
       if($element === "input"){
         $form .= $this->input_type !== '' ? "<input type='$this->input_type'":"";
       }else if($element === "textarea"){
