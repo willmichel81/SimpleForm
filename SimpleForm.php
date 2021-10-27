@@ -58,6 +58,14 @@ class SimpleForm{
     $this->addFormInputElement('clickable');
   }
 
+  function setOptionInput($label_text_array,$name,$id,$value_array,$required = False){
+    $this->option_value = array_combine($label_text_array,$value_array);
+    $this->option_name = $name;
+    $this->option_id = $id;
+    $this->requiredName = $required;
+    $this->addFormInputElement('option');
+  }
+
   function setFieldset($label){
     $this->fieldset_label = $label;
     $this->addFormInputElement('start_fieldset');
@@ -178,13 +186,27 @@ class SimpleForm{
         }
         $form .="</div>";
 
+    }elseif($element == "option"){
+      $form .= "<div class='col-md-6'>";
+        $form .= "<select id='$this->option_id' class='form-control' name='$this->option_name'";
+        $form .= $this->requiredName !== False ? ' required>' :' >';
+              foreach($this->option_value as $key => $value){
+                $form .= '<option value="'.$value.'">';
+                $form .= $key;
+                $form .= '</option>';
+              }
+        $form .= '</select>';
+      $form .= "</div>";
+      $this->requiredName == True ? array_push($this->requiredName_array,$this->option_name):"";
+      $this->requiredName == True ? array_push($this->requiredLabel_array,'You must select an option out of the provided dropdown, this '):"";
+
     }elseif($element == "start_fieldset"){
       $form .= "<fieldset class='col-md-12'>";
       $form .= $this->fieldset_label !== "" ? "<legend>$this->fieldset_label</legend>":"";
     }elseif($element == "end_fieldset"){
       $form .="<hr class='col-md-12' /></fieldset>";
     }elseif($element == "extra_label"){
-      $form .= $this->extra_label !== "" ? "<label>$this->extra_label</label>" : "";
+      $form .= $this->extra_label !== "" ? "<label class='col-md-12'>$this->extra_label</label>" : "";
     }else{
       $form .= "<div class='form-group col-md-6'>";
       $form .= "<label ";

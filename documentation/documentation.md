@@ -7,6 +7,7 @@
     <li><a href="#settextarea">setTextArea()</a></li>
     <li><a href="#setclickableinput">setClickableInput()</a></li>
     <li><a href="#setfieldset">setFieldset()</a></li>
+    <li><a href="#setoptioninput">setOptionInput()</a></li>
     <li><a href="#setendfieldset">setEndFieldset()</a></li>
     <li><a href="#setextralabel">setExtraLabel()</a></li>
     <li><a href="#setsubmitbtn">setSubmitBtn()</a></li>
@@ -109,6 +110,23 @@ $form = new SimpleForm('/where/page/is/submitted.php#msg','POST');<br />
 $form->setClickableInput(array("Option 1", "Option 2", "Option 3"), array("selectedOptionName1","selectedOptionName2", selectedOptionName3), "selectedOptionId", "checkbox", "inline", array("Value_1","Value_2","Value_3"), True);
 </code>
 
+<!-- ABOUT THE setOptionInput -->
+## setOptionInput()
+When you call the setOptionInput() you will need to pass it the following params:<br />
+This will be used for select/option tags<br />
+<ul>
+  <li>Param 1 (Required) : Label Text of option tag(Array)</li>
+  <li>Param 2 (Required) : Name of input(Used for form submission)(Array)</li>
+  <li>Param 3 (Required) : ID of input(Used for form submission)</li>
+  <li>Param 4 (Required) : Value of option tag (Array)</li>
+  <li>Param 5 (Optional) : Required ("True"|"False")(default:"False")</li>
+</ul>
+
+### Example:
+<code>
+$form = new SimpleForm('/where/page/is/submitted.php#msg','POST');<br />
+$form->setOptionInput(array("Value_1","Value_2"),"selectedOptionName","selectedOptionId",array("Label_1","Label_2"),True);
+</code>
 
 <!-- ABOUT THE setFieldset -->
 ## setFieldset()
